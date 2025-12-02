@@ -617,7 +617,7 @@ client.on('messageCreate', async (message) => {
                         .setColor('#ff0000')
                         .addFields(
                             { name: '🔒 Canales Permitidos', value: 'Canal de chat IA y canal de comandos', inline: false },
-                            { name: '💡 Comando', value: `Usa \\`${BOT_PREFIX}clear_chat\\` sin parámetros para ver ayuda`, inline: false }
+                            { name: '💡 Comando', value: `Usa \`${BOT_PREFIX}clear_chat\` sin parámetros para ver ayuda`, inline: false }
                         )
                         .setFooter({ text: 'Stealth-AntiCheatX | Control de Spam' })
                         .setTimestamp();
