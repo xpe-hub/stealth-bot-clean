@@ -1,0 +1,4 @@
+# Railway Cache Clear File
+# Timestamp: 2025-11-28 10:32:21
+# This file forces Railway to rebuild completely
+# File can be safely removed after successful deployment

@@ -1,0 +1,32 @@
+{
+  "name": "stealth-anticheatx-v3",
+  "version": "3.0.0",
+  "description": "Discord bot completo con sistema anti-cheat, IA MiniMax, y configuración automática para Railway",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "node bot.js",
+    "install:modules": "npm install",
+    "setup": "node install.js"
+  },
+  "keywords": ["discord", "bot", "anticheat", "ai", "minimax", "railway", "automation"],
+  "author": "MiniMax Agent",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xpe-hub/stealth-bot-v3-clean"
+  },
+  "homepage": "https://github.com/xpe-hub/stealth-bot-v3-clean#readme"
+}

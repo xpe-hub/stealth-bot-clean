@@ -1,0 +1,14 @@
+[phases.install]
+cmd = "npm ci --only=production"
+
+[phases.build]  
+cmd = "echo 'FORCED REBUILD - nixpacks config updated 2025-11-28 12:01:26'"
+
+[start]
+cmd = "node bot_test.js"
+
+# ==============================================
+# RAILWAY CACHE CLEAR - AGGRESSIVE REBUILD
+# Timestamp: 2025-11-28 12:01:26
+# This configuration change forces complete rebuild
+# ==============================================
