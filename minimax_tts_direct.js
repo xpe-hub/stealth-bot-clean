@@ -3,7 +3,7 @@
 // Stealth-AntiCheatX v3.0 - IA AUTÓNOMA CON VOZ
 // ========================================================
 
-const fetch = require('node-fetch');
+// Using Node.js 18+ native fetch instead of node-fetch
 
 // Configuración TTS - Basado en documentación oficial del blog
 const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY;

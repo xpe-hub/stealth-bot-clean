@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
-const fetch = require('node-fetch');
+// Using Node.js 18+ native fetch instead of node-fetch
 
 // ========================================
 // 🤖 BOT STEALTH-ANTICHEATX - IA NO LIMITADA

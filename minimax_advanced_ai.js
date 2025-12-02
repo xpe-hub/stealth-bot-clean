@@ -4,7 +4,7 @@
 // Stealth-AntiCheatX - IA AUTÓNOMA COMPLETA
 // ========================================================
 
-const fetch = global.fetch || require('node-fetch');
+// Using Node.js 18+ native fetch (always available in Node 18+)
 
 // Configuración MiniMax - Basado en documentación oficial
 const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY;
