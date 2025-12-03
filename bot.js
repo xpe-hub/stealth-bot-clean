@@ -706,7 +706,7 @@ client.on('messageCreate', async (message) => {
                         .setDescription('Uso del comando para agregar desarrolladores')
                         .setColor('#6a5acd')
                         .addFields(
-                            { name: '💻 Ejemplo', value: , inline: false },
+                            { name: '💻 Ejemplo', value: `\`${BOT_PREFIX}add_dev <user>\``, inline: false },
                             { name: '👑 Permisos', value: 'Solo el owner puede usar este comando', inline: true },
                             { name: '⚙️ Función', value: 'Agregar usuarios a la lista de desarrolladores', inline: true }
                         )
