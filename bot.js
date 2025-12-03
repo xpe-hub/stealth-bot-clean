@@ -20,7 +20,7 @@ const { connectToRepository, analyzeCommits, getRepositoryStatus } = require('./
 const { textToSpeech, getAvailableVoices, generateVoiceResponse, handleVoiceJoin, handleVoiceCommand, generateAutonomousResponse } = require('./minimax_tts_direct');
 
 // Stealth-AntiCheatX Advanced AI - v4.0 (Stealth-AntiCheatX-01 + Mini-Agent + VL-01)
-const { Stealth-AntiCheatXAdvancedAI, generateWithStealth-AntiCheatX01, analyzeImageWithVL01, createAdvancedAgent } = require('./minimax_advanced_ai');
+const { StealthAntiCheatXAdvancedAI, generateWithStealthAntiCheatX01, analyzeImageWithVL01, createAdvancedAgent } = require('./minimax_advanced_ai');
 
 // Configuración del bot
 const client = new Client({
@@ -1180,7 +1180,7 @@ client.on('messageCreate', async (message) => {
 // ========================================================
 
 // Crear instancia del agente avanzado
-const advancedAI = new Stealth-AntiCheatXAdvancedAI();
+const advancedAI = new StealthAntiCheatXAdvancedAI();
 
 // Comando: !ai-analyze (Análisis profundo con Stealth-AntiCheatX-01)
 client.on('messageCreate', async (message) => {
