@@ -103,6 +103,11 @@ function isDeveloper(userId) {
     return developers.developers.includes(userId) || isOwner(userId);
 }
 
+// Sistema de permisos: Solo owner y developers pueden usar el bot
+function canUseBot(userId) {
+    return isDeveloper(userId);
+}
+
 function getUserNickname(userId, username) {
     return nicknames[userId] || username;
 }
@@ -412,6 +417,23 @@ client.on('messageCreate', async (message) => {
     // Manejo de comandos
     if (!message.content.startsWith(BOT_PREFIX)) return;
     
+    // Verificar permisos: solo owner y developers pueden usar comandos
+    if (!canUseBot(message.author.id)) {
+        const noPermissionEmbed = new EmbedBuilder()
+            .setTitle('❌ Acceso Denegado')
+            .setDescription('Solo el owner y desarrolladores autorizados pueden usar este bot.')
+            .setColor('#ff0000')
+            .addFields(
+                { name: '🔐 Permisos Requeridos', value: '• Owner del bot\n• Desarrollador autorizado', inline: true },
+                { name: '💬 Contacto', value: 'Contacta al owner para solicitar acceso', inline: true }
+            )
+            .setFooter({ text: 'Stealth-AntiCheatX v3.0 | Sistema de Permisos' })
+            .setTimestamp();
+        
+        await message.reply({ embeds: [noPermissionEmbed] });
+        return;
+    }
+    
     const args = message.content.slice(BOT_PREFIX.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
     
@@ -696,26 +718,7 @@ client.on('messageCreate', async (message) => {
                 }
                 break;
 
-            case 'add_dev':
-                    return message.reply('❌ Solo el owner puede agregar developers.');
-                }
-                
-                const targetUserId = args[0];
-                    const helpAddDevEmbed = new EmbedBuilder()
-                        .setTitle('🛠️ Agregar Developer')
-                        .setDescription('Uso del comando para agregar desarrolladores')
-                        .setColor('#6a5acd')
-                        .addFields(
-                            { name: '💻 Ejemplo', value: `\`${BOT_PREFIX}add_dev <user>\``, inline: false },
-                            { name: '👑 Permisos', value: 'Solo el owner puede usar este comando', inline: true },
-                            { name: '⚙️ Función', value: 'Agregar usuarios a la lista de desarrolladores', inline: true }
-                        )
-                        .setFooter({ text: 'Stealth-AntiCheat | Gestión de Desarrolladores' })
-                        .setTimestamp();
-                    
-                    await message.reply({ embeds: [helpAddDevEmbed] });
-                    break;
-                }
+
                 
                 
                 if (developers.developers.includes(cleanUserId)) {
@@ -1186,6 +1189,23 @@ const advancedAI = new StealthAntiCheatXAdvancedAI();
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
     if (!message.content.startsWith(BOT_PREFIX)) return;
+    
+    // Verificar permisos: solo owner y developers pueden usar comandos
+    if (!canUseBot(message.author.id)) {
+        const noPermissionEmbed = new EmbedBuilder()
+            .setTitle('❌ Acceso Denegado')
+            .setDescription('Solo el owner y desarrolladores autorizados pueden usar este bot.')
+            .setColor('#ff0000')
+            .addFields(
+                { name: '🔐 Permisos Requeridos', value: '• Owner del bot\n• Desarrollador autorizado', inline: true },
+                { name: '💬 Contacto', value: 'Contacta al owner para solicitar acceso', inline: true }
+            )
+            .setFooter({ text: 'Stealth-AntiCheatX v3.0 | Sistema de Permisos' })
+            .setTimestamp();
+        
+        await message.reply({ embeds: [noPermissionEmbed] });
+        return;
+    }
 
     const args = message.content.slice(BOT_PREFIX.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
